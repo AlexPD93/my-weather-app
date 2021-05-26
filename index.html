@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="temperature-text-wrapper">
+        <div class="change-city-text">
+        Change city
+        <form class="change-city-form" id="change-city-form">
+          <input
+            class="city-input"
+            id="change-city-input"
+            type="text"
+            autofocus="on"
+            placeholder="Type a city..."
+          />
+        </form>
+        <h3 id="day-time">Mon 19:20</h3>
+        <h3 id="date">20/20/2020</h3>
+        <h4 id="weather-description"></h4>
+        <div id="current-location"><a class="current-location" href="#">Current Location</a></div>
+        </div>
+      </div>
+    <h1 id="city-title">City pending...</h1>
+      <div class="day-weather-wrapper">
+          <div class="temperature-div"><h2 id="temperature">⌛</h2></div>
+          <div class="temp-measurement-celcius">
+            <a id="celcius-temp" class="celcius-temp" href="#">°C</a>
+          </div>
+          <div class="temp-measurement-fahren">
+            <a id="fahren-temp" class="fahren-temp" href="#">°F</a>
+          </div>
+          <div class="main-weather-emoji-div">
+            <img
+              class="main-weather-emoji"
+              src="Images/Sun emoji.png"
+              alt="Sun emoji"
+            />
+          </div>
+          <div class="day-weather">
+            Mon
+            <div>
+              <img
+                class="weather-emojis"
+                src="Images/Sun emoji.png"
+                alt="Sun emoji"
+              />
+            </div>
+            <div class="day-temperatures">15°C/5°C</div>
+          </div>
+          <div class="day-weather">
+            Tue
+            <div>
+              <img
+                class="weather-emojis"
+                src="Images/Sun emoji.png"
+                alt="Sun emoji"
+              />
+            </div>
+            <div class="day-temperatures">15°C/5°C</div>
+          </div>
+          <div class="day-weather">
+            Wed
+            <div>
+              <img
+                class="weather-emojis"
+                src="Images/Sun emoji.png"
+                alt="Sun emoji"
+              />
+            </div>
+            <div class="day-temperatures">15°C/5°C</div>
+          </div>
+          <div class="day-weather">
+            Thu
+            <div>
+              <img
+                class="weather-emojis"
+                src="Images/Sun emoji.png"
+                alt="Sun emoji"
+              />
+            </div>
+            <div class="day-temperatures">15°C/5°C</div>
+          </div>
+          <div class="day-weather">
+            Fri
+            <div>
+              <img
+                class="weather-emojis"
+                src="Images/Sun emoji.png"
+                alt="Sun emoji"
+              />
+            </div>
+            <div class="day-temperatures">15°C/5°C</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>
