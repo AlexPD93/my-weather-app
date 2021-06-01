@@ -10,7 +10,7 @@ let minutes = now.getMinutes();
 if (minutes < 10) minutes = "0" + now.getMinutes();
 
 let date = now.getDate();
-if (date < 10) date = "0" + now.getDate;
+if (date < 10) date = "0" + now.getDate();
 
 let months = [
   "01",
