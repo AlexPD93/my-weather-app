@@ -91,7 +91,6 @@ h2 {
   grid-row: 1;
   justify-self: center;
   margin-bottom: 20px;
-  margin-right: 20px;
 }
 
 .temp-measurement-fahren {
@@ -100,7 +99,6 @@ h2 {
   grid-row: 1;
   justify-self: center;
   margin-bottom: 45px;
-  margin-right: 20px;
 }
 
 .celcius-temp,
@@ -149,11 +147,45 @@ footer {
   height: 2.5rem;
 }
 
+@media (max-width: 770px) {
+  footer {
+    font-size: 15px;
+  }
+  .day-weather {
+    margin-top: 0;
+  }
+}
+
 @media (max-width: 380px) {
   .weather-emojis {
-    width: 36px;
+    width: 44px;
   }
   .day-temperatures {
-    font-size: 7px;
+    font-size: 10px;
+  }
+  .day-weather-wrapper {
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 430px) {
+  footer {
+    font-size: 2px;
+  }
+  .day-weather {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 430px) {
+  footer {
+    font-size: 10px;
+  }
+}
+
+@media (max-height: 545px) {
+  footer {
+    height: 1rem;
+    margin-bottom: 12px;
   }
 }
