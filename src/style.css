@@ -117,6 +117,7 @@ h2 {
 .main-weather-emoji {
   width: 130px;
   justify-self: center;
+  justify-content: right;
 }
 
 .day-weather {

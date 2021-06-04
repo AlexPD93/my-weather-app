@@ -79,6 +79,10 @@ function showCityInfo(response) {
   let description = response.data.weather[0].description;
   let weatherDescription = document.querySelector(`#weather-description`);
   weatherDescription.innerHTML = `${description}`;
+  let city = response.data.name;
+  let country = response.data.sys.country;
+  let cityCountryTitle = document.querySelector(`#city-title`);
+  cityCountryTitle.innerHTML = `${city},  ${country}`;
 }
 
 let form = document.querySelector(`#change-city-form`);
@@ -95,15 +99,14 @@ function showPosition(position) {
   let longitude = position.coords.longitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric`;
   let apiKey = `d3da927bc59cf1a6983a5b442fc7678e`;
-  let fullApiLink = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=d3da927bc59cf1a6983a5b442fc7678e`;
-  console.log(latitude);
   axios.get(`${apiUrl}&appid=${apiKey}`).then(showLocation);
 }
 
 function showLocation(response) {
   let location = response.data.name;
+  let country = response.data.sys.country;
   let locationTemp = document.querySelector(`#city-title`);
-  locationTemp.innerHTML = `${location}`;
+  locationTemp.innerHTML = `${location} ${country}`;
   let temperature = Math.round(response.data.main.temp);
   let temperatureDisplay = document.querySelector(`#temperature`);
   temperatureDisplay.innerHTML = `${temperature}`;
