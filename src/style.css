@@ -87,7 +87,7 @@ h2 {
 
 .temp-measurement-celcius {
   align-self: center;
-  grid-column: 5 / 6;
+  grid-column: 4 / 5;
   grid-row: 1;
   justify-self: center;
   margin-bottom: 20px;
@@ -95,7 +95,7 @@ h2 {
 
 .temp-measurement-fahren {
   align-self: end;
-  grid-column: 5 / 6;
+  grid-column: 4 / 5;
   grid-row: 1;
   justify-self: center;
   margin-bottom: 45px;
@@ -166,6 +166,10 @@ footer {
   }
   .day-weather-wrapper {
     margin-bottom: 50px;
+  }
+  .temp-measurement-celcius,
+  .temp-measurement-fahren {
+    grid-column: 5;
   }
 }
 
