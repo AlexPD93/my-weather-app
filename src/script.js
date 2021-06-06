@@ -97,7 +97,7 @@ function showLocation(response) {
   let location = response.data.name;
   let country = response.data.sys.country;
   let locationTemp = document.querySelector(`#city-title`);
-  locationTemp.innerHTML = `${location} ${country}`;
+  locationTemp.innerHTML = `${location}, ${country}`;
   let temperature = Math.round(response.data.main.temp);
   let temperatureDisplay = document.querySelector(`#temperature`);
   temperatureDisplay.innerHTML = `${temperature}`;
@@ -108,6 +108,12 @@ function showLocation(response) {
 
 function getCurrentLocation() {
   navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+function search(city) {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}`;
+  let apiKey = `d3da927bc59cf1a6983a5b442fc7678e`;
+  axios.get(`${apiUrl}&appid=${apiKey}&units=metric`).then(showCityInfo);
 }
 
 let form = document.querySelector(`#change-city-form`);
@@ -121,4 +127,5 @@ fahrenTemp.addEventListener(`click`, searchCityFahren);
 
 let currentLocation = document.querySelector(`#current-location`);
 currentLocation.addEventListener(`click`, getCurrentLocation);
-getCurrentLocation();
+
+search("London");
