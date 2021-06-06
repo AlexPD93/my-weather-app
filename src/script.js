@@ -85,15 +85,6 @@ function showCityInfo(response) {
   cityCountryTitle.innerHTML = `${city},  ${country}`;
 }
 
-let form = document.querySelector(`#change-city-form`);
-form.addEventListener(`submit`, searchCity);
-
-let celciusTemp = document.querySelector(`#celcius-temp`);
-celciusTemp.addEventListener(`click`, searchCityCelcius);
-
-let fahrenTemp = document.querySelector(`#fahren-temp`);
-fahrenTemp.addEventListener(`click`, searchCityFahren);
-
 function showPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -118,6 +109,15 @@ function showLocation(response) {
 function getCurrentLocation() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
+
+let form = document.querySelector(`#change-city-form`);
+form.addEventListener(`submit`, searchCity);
+
+let celciusTemp = document.querySelector(`#celcius-temp`);
+celciusTemp.addEventListener(`click`, searchCityCelcius);
+
+let fahrenTemp = document.querySelector(`#fahren-temp`);
+fahrenTemp.addEventListener(`click`, searchCityFahren);
 
 let currentLocation = document.querySelector(`#current-location`);
 currentLocation.addEventListener(`click`, getCurrentLocation);
