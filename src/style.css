@@ -104,6 +104,9 @@ h2 {
 .celcius-temp,
 .fahren-temp {
   color: #b3ebf0;
+}
+
+.remove-underline {
   text-decoration: none;
 }
 
@@ -147,6 +150,10 @@ footer {
   bottom: 0;
   width: 100%;
   height: 3rem;
+}
+
+.footer-link {
+  text-decoration: none;
 }
 
 @media (max-width: 770px) {

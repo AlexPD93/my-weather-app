@@ -46,28 +46,26 @@ function searchCity(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch.value}`;
   let apiKey = `d3da927bc59cf1a6983a5b442fc7678e`;
   axios.get(`${apiUrl}&appid=${apiKey}&units=metric`).then(showCityInfo);
+  document.forms["change-city-form"].reset();
 }
 
-function searchCityCelcius(event) {
+function displayCelciusTemp(event) {
   event.preventDefault();
   let citySearch = document.querySelector(`#change-city-input`);
-  let city = document.querySelector(`#city-title`);
-  if (citySearch.value) {
-    city.innerHTML = `${citySearch.value}`;
-  }
+  celsiusLink.classList.add("remove-underline");
+  fahrenLink.classList.remove("remove-underline");
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch.value}`;
   let apiKey = `d3da927bc59cf1a6983a5b442fc7678e`;
   axios.get(`${apiUrl}&appid=${apiKey}&units=metric`).then(showCityInfo);
 }
 
-function searchCityFahren(event) {
+function displayFahrenTemp(event) {
   event.preventDefault();
   let citySearch = document.querySelector(`#change-city-input`);
-  let city = document.querySelector(`#city-title`);
-  if (citySearch.value) {
-    city.innerHTML = `${citySearch.value}`;
-  }
+  celsiusLink.classList.remove("remove-underline");
+  fahrenLink.classList.add("remove-underline");
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch.value}`;
+  console.log(citySearch.value);
   let apiKey = `d3da927bc59cf1a6983a5b442fc7678e`;
   axios.get(`${apiUrl}&appid=${apiKey}&units=imperial`).then(showCityInfo);
 }
@@ -119,11 +117,11 @@ function search(city) {
 let form = document.querySelector(`#change-city-form`);
 form.addEventListener(`submit`, searchCity);
 
-let celciusTemp = document.querySelector(`#celcius-temp`);
-celciusTemp.addEventListener(`click`, searchCityCelcius);
+let celsiusLink = document.querySelector(`#celcius-temp`);
+celsiusLink.addEventListener(`click`, displayCelciusTemp);
 
-let fahrenTemp = document.querySelector(`#fahren-temp`);
-fahrenTemp.addEventListener(`click`, searchCityFahren);
+let fahrenLink = document.querySelector(`#fahren-temp`);
+fahrenLink.addEventListener(`click`, displayFahrenTemp);
 
 let currentLocation = document.querySelector(`#current-location`);
 currentLocation.addEventListener(`click`, getCurrentLocation);
