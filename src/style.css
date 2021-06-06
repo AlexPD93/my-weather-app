@@ -137,7 +137,8 @@ h2 {
 
 .weather-emojis {
   width: 50px;
-  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 7px;
 }
 
 footer {
@@ -150,10 +151,10 @@ footer {
 
 @media (max-width: 770px) {
   footer {
-    font-size: 15px;
+    font-size: 12px;
   }
   .day-weather {
-    margin-top: 0;
+    margin-top: 10px;
   }
 }
 
@@ -171,14 +172,14 @@ footer {
   .temp-measurement-fahren {
     grid-column: 5;
   }
+  .day-weather {
+    margin-top: 0px;
+  }
 }
 
 @media (max-width: 430px) {
   footer {
     font-size: 2px;
-  }
-  .day-weather {
-    margin-top: 0;
   }
 }
 
