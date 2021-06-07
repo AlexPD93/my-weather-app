@@ -51,7 +51,7 @@ function searchCity(event) {
 
 function displayCelciusTemp(event) {
   event.preventDefault();
-  let city = document.querySelector(`#city-title`);
+  let city = document.querySelector(`#city-title`).textContent;
   celsiusLink.classList.add("remove-underline");
   fahrenLink.classList.remove("remove-underline");
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}`;
@@ -61,7 +61,7 @@ function displayCelciusTemp(event) {
 
 function displayFahrenTemp(event) {
   event.preventDefault();
-  let city = document.querySelector(`#city-title`);
+  let city = document.querySelector(`#city-title`).textContent;
   celsiusLink.classList.remove("remove-underline");
   fahrenLink.classList.add("remove-underline");
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}`;
