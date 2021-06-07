@@ -51,21 +51,20 @@ function searchCity(event) {
 
 function displayCelciusTemp(event) {
   event.preventDefault();
-  let citySearch = document.querySelector(`#change-city-input`);
+  let city = document.querySelector(`#city-title`);
   celsiusLink.classList.add("remove-underline");
   fahrenLink.classList.remove("remove-underline");
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch.value}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}`;
   let apiKey = `d3da927bc59cf1a6983a5b442fc7678e`;
   axios.get(`${apiUrl}&appid=${apiKey}&units=metric`).then(showCityInfo);
 }
 
 function displayFahrenTemp(event) {
   event.preventDefault();
-  let citySearch = document.querySelector(`#change-city-input`);
+  let city = document.querySelector(`#city-title`);
   celsiusLink.classList.remove("remove-underline");
   fahrenLink.classList.add("remove-underline");
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch.value}`;
-  console.log(citySearch.value);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}`;
   let apiKey = `d3da927bc59cf1a6983a5b442fc7678e`;
   axios.get(`${apiUrl}&appid=${apiKey}&units=imperial`).then(showCityInfo);
 }
@@ -79,8 +78,10 @@ function showCityInfo(response) {
   weatherDescription.innerHTML = `${description}`;
   let city = response.data.name;
   let country = response.data.sys.country;
-  let cityCountryTitle = document.querySelector(`#city-title`);
-  cityCountryTitle.innerHTML = `${city},  ${country}`;
+  let cityTitle = document.querySelector(`#city-title`);
+  let countryTitle = document.querySelector(`#country-title`);
+  cityTitle.innerHTML = `${city}`;
+  countryTitle.innerHTML = `${country}`;
 }
 
 function showPosition(position) {
@@ -94,8 +95,10 @@ function showPosition(position) {
 function showLocation(response) {
   let location = response.data.name;
   let country = response.data.sys.country;
-  let locationTemp = document.querySelector(`#city-title`);
-  locationTemp.innerHTML = `${location}, ${country}`;
+  let cityTitle = document.querySelector(`#city-title`);
+  let countryTitle = document.querySelector(`#country-title`);
+  cityTitle.innerHTML = `${location}`;
+  countryTitle.innerHTML = `${country}`;
   let temperature = Math.round(response.data.main.temp);
   let temperatureDisplay = document.querySelector(`#temperature`);
   temperatureDisplay.innerHTML = `${temperature}`;
