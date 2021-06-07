@@ -80,8 +80,15 @@ function showCityInfo(response) {
   let country = response.data.sys.country;
   let cityTitle = document.querySelector(`#city-title`);
   let countryTitle = document.querySelector(`#country-title`);
+  let iconElement = document.querySelector(`#icon`);
+
   cityTitle.innerHTML = `${city}`;
   countryTitle.innerHTML = `${country}`;
+  iconElement.setAttribute(
+    `src`,
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute(`alt`, response.data.weather[0].description);
 }
 
 function showPosition(position) {
@@ -104,7 +111,14 @@ function showLocation(response) {
   temperatureDisplay.innerHTML = `${temperature}`;
   let description = response.data.weather[0].description;
   let weatherDescription = document.querySelector(`#weather-description`);
+  let iconElement = document.querySelector(`#icon`);
+
   weatherDescription.innerHTML = `${description}`;
+  icon.setAttribute(
+    `src`,
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute(`alt`, response.data.weather[0].description);
 }
 
 function getCurrentLocation() {
