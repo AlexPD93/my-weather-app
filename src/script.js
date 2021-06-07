@@ -47,6 +47,8 @@ function searchCity(event) {
   let apiKey = `d3da927bc59cf1a6983a5b442fc7678e`;
   axios.get(`${apiUrl}&appid=${apiKey}&units=metric`).then(showCityInfo);
   document.forms["change-city-form"].reset();
+  celsiusLink.classList.remove("remove-underline");
+  fahrenLink.classList.add("remove-underline");
 }
 
 function displayCelciusTemp(event) {
@@ -100,6 +102,8 @@ function showPosition(position) {
 }
 
 function showLocation(response) {
+  celsiusLink.classList.remove("remove-underline");
+  fahrenLink.classList.add("remove-underline");
   let location = response.data.name;
   let country = response.data.sys.country;
   let cityTitle = document.querySelector(`#city-title`);
