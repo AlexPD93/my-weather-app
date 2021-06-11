@@ -56,26 +56,21 @@ h4 {
   color: #000000;
 }
 
-.day-weather-wrapper {
+.current-day-wrapper {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: 150px 100px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 150px;
   margin: 0 auto;
   max-width: 450px;
-  margin-bottom: 10px;
-}
-
-.temperature-div {
-  align-self: center;
-  grid-column: 2 / 4;
-  grid-row: 1;
-  margin-bottom: 10px;
-  margin-left: 10px;
 }
 
 h2 {
   color: #b3ebf0;
   font-size: 75px;
+  align-self: center;
+  justify-self: center;
+  grid-column: 1;
+  grid-row: 1;
 }
 
 .current-location {
@@ -87,18 +82,19 @@ h2 {
 
 .temp-measurement-celcius {
   align-self: center;
-  grid-column: 4 / 5;
+  grid-column: 1;
+  justify-self: end;
   grid-row: 1;
-  justify-self: center;
-  margin-bottom: 20px;
+  margin-right: 20px;
 }
 
 .temp-measurement-fahren {
-  align-self: end;
-  grid-column: 4 / 5;
+  align-self: center;
+  grid-column: 1;
   grid-row: 1;
-  justify-self: center;
-  margin-bottom: 45px;
+  justify-self: end;
+  margin-right: 20px;
+  margin-top: 50px;
 }
 
 .celcius-temp,
@@ -111,10 +107,10 @@ h2 {
 }
 
 .main-weather-emoji-div {
-  grid-column: 6 / 9;
   grid-row: 1;
-  align-self: end;
-  margin-right: 0px;
+  grid-column: 2;
+  align-self: center;
+  justify-self: center;
 }
 
 .main-weather-emoji {
@@ -123,23 +119,28 @@ h2 {
   justify-content: right;
 }
 
+.forecast-wrapper {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 150px;
+  margin: 0 auto;
+  max-width: 450px;
+}
+
 .day-weather {
+  align-self: center;
   background: #b3ebf0;
-  border: 1px solid black;
   border-radius: 20px;
   font-size: 10px;
   grid-column: span 2;
-  grid-row: 2;
-  height: 100px;
+  height: 120px;
   justify-self: center;
   text-align: center;
   width: 80%;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .weather-emojis {
-  width: 50px;
+  width: 60px;
   margin-top: 10px;
   margin-bottom: 7px;
 }
