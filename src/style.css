@@ -107,7 +107,6 @@ h2 {
 }
 
 .main-weather-emoji-div {
-  grid-row: 1;
   grid-column: 2;
   align-self: center;
   justify-self: center;
@@ -116,13 +115,13 @@ h2 {
 .main-weather-emoji {
   width: 130px;
   justify-self: center;
-  justify-content: right;
 }
 
 .forecast-wrapper {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 150px;
+  justify-content: center;
   margin: 0 auto;
   max-width: 450px;
 }
@@ -132,9 +131,9 @@ h2 {
   background: #b3ebf0;
   border-radius: 20px;
   font-size: 10px;
-  grid-column: span 2;
   height: 120px;
   justify-self: center;
+  grid-column: span 1;
   text-align: center;
   width: 80%;
 }

@@ -51,6 +51,33 @@ function searchCity(event) {
   fahrenLink.classList.add("remove-underline");
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector(`#forecast`);
+
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+
+  let forecastHTML = `<div class="forecast-wrapper">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="day-weather">
+           <div>${day}</div> 
+            <div class="weather-image">
+              <img
+                class="weather-emojis"
+                src="Images/Sun emoji.png"
+                alt="Sun emoji"          
+              />
+            </div>
+            <div class="day-temperatures">15°C/5°C</div>
+          </div>
+          `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayCelciusTemp(event) {
   event.preventDefault();
   let city = document.querySelector(`#city-title`).textContent;
@@ -148,3 +175,4 @@ let currentLocation = document.querySelector(`#current-location`);
 currentLocation.addEventListener(`click`, getCurrentLocation);
 
 search("London");
+displayForecast();
