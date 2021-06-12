@@ -30,8 +30,8 @@ let month = months[now.getMonth()];
 
 let year = now.getFullYear();
 
-let dayTime = document.querySelector(`#day-time`);
-dayTime.innerHTML = `${day} ${hours}:${minutes}`;
+let dayTime = document.querySelector(`#day`);
+dayTime.innerHTML = `${day}`;
 
 let todaysDate = document.querySelector(`#date`);
 todaysDate.innerHTML = `${date}/${month}/${year}`;
@@ -49,12 +49,6 @@ function searchCity(event) {
   document.forms["change-city-form"].reset();
   celsiusLink.classList.remove("remove-underline");
   fahrenLink.classList.add("remove-underline");
-
-  currentTime();
-}
-
-function currentDateTime(response, time) {
-  console.log(response.data.timezone);
 }
 
 function formatDay(timestamp) {
@@ -67,7 +61,7 @@ function formatDay(timestamp) {
 
 function displayForecast(response) {
   let forecast = response.data.daily;
-
+  console.log(forecast);
   let forecastElement = document.querySelector(`#forecast`);
 
   let forecastHTML = `<div class="forecast-wrapper">`;
@@ -149,7 +143,19 @@ function showCityInfo(response) {
   );
   iconElement.setAttribute(`alt`, response.data.weather[0].description);
 
+  let apiKey = `dac344694bff4911a980eb0b3d3c6c11`;
+
+  let apiUrl = `https://timezone.abstractapi.com/v1/current_time?api_key=${apiKey}&location=${city}`;
+  axios.get(`${apiUrl}`).then(showLiveTime);
+
   getForecast(response.data.coord);
+}
+
+function showLiveTime(response) {
+  console.log(response);
+  let currentDayTime = response.data.datetime.slice(10, 16);
+  let dayTime = document.querySelector(`#time`);
+  dayTime.innerHTML = `${currentDayTime}`;
 }
 
 function showPosition(position) {
