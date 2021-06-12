@@ -51,7 +51,8 @@ function searchCity(event) {
   fahrenLink.classList.add("remove-underline");
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector(`#forecast`);
 
   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
@@ -69,7 +70,10 @@ function displayForecast() {
                 alt="Sun emoji"          
               />
             </div>
-            <div class="day-temperatures">15°C/5°C</div>
+            <div class="day-temperatures">
+            <span class="weather-forecast-temperature-max">15°C</span>
+            <span class="weather-forecast-temperature-max">5°C</span>
+            </div>
           </div>
           `;
   });
@@ -98,6 +102,12 @@ function displayFahrenTemp(event) {
   axios.get(`${apiUrl}&appid=${apiKey}&units=imperial`).then(showCityInfo);
 }
 
+function getForecast(coordinates) {
+  let apiKey = `d3da927bc59cf1a6983a5b442fc7678e`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showCityInfo(response) {
   let temperature = Math.round(response.data.main.temp);
   let temperatureDisplay = document.querySelector(`#temperature`);
@@ -118,6 +128,8 @@ function showCityInfo(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute(`alt`, response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function showPosition(position) {
@@ -175,4 +187,3 @@ let currentLocation = document.querySelector(`#current-location`);
 currentLocation.addEventListener(`click`, getCurrentLocation);
 
 search("London");
-displayForecast();
