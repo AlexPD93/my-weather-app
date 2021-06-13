@@ -61,7 +61,7 @@ function formatDay(timestamp) {
 
 function displayForecast(response) {
   let forecast = response.data.daily;
-  console.log(forecast);
+
   let forecastElement = document.querySelector(`#forecast`);
 
   let forecastHTML = `<div class="forecast-wrapper">`;
@@ -152,10 +152,16 @@ function showCityInfo(response) {
 }
 
 function showLiveTime(response) {
-  console.log(response);
-  let currentDayTime = response.data.datetime.slice(10, 16);
-  let dayTime = document.querySelector(`#time`);
-  dayTime.innerHTML = `${currentDayTime}`;
+  let currentTime = response.data.datetime.slice(10, 16);
+  let todayDate = response.data.datetime.slice(8, 10);
+  let month = response.data.datetime.slice(5, 7);
+  let year = response.data.datetime.slice(0, 4);
+
+  let time = document.querySelector(`#time`);
+  let date = document.querySelector(`#date`);
+
+  date.innerHTML = `${todayDate}-${month}-${year}`;
+  time.innerHTML = `${currentTime}`;
 }
 
 function showPosition(position) {
