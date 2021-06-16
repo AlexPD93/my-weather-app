@@ -1,41 +1,3 @@
-let now = new Date();
-
-let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-let day = days[now.getDay()];
-
-let hours = now.getHours();
-if (hours < 10) hours = "0" + now.getHours();
-
-let minutes = now.getMinutes();
-if (minutes < 10) minutes = "0" + now.getMinutes();
-
-let date = now.getDate();
-if (date < 10) date = "0" + now.getDate();
-
-let months = [
-  "01",
-  "02",
-  "03",
-  "04",
-  "05",
-  "06",
-  "07",
-  "08",
-  "09",
-  "10",
-  "11",
-  "12",
-];
-let month = months[now.getMonth()];
-
-let year = now.getFullYear();
-
-let dayTime = document.querySelector(`#day`);
-dayTime.innerHTML = `${day}`;
-
-let todaysDate = document.querySelector(`#date`);
-todaysDate.innerHTML = `${date}/${month}/${year}`;
-
 function searchCity(event) {
   event.preventDefault();
   let citySearch = document.querySelector(`#change-city-input`);
@@ -61,6 +23,9 @@ function formatDay(timestamp) {
 
 function displayForecast(response) {
   let forecast = response.data.daily;
+
+  let day = document.querySelector(`#day`);
+  day.innerHTML = formatDay(response.data.daily[0].dt);
 
   let forecastElement = document.querySelector(`#forecast`);
 
@@ -194,6 +159,12 @@ function showLocation(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute(`alt`, response.data.weather[0].description);
+
+  let timeApiKey = `dac344694bff4911a980eb0b3d3c6c11`;
+
+  let timeApiUrl = `https://timezone.abstractapi.com/v1/current_time?api_key=${timeApiKey}&location=${location}`;
+
+  axios.get(`${timeApiUrl}`).then(showLiveTime);
 }
 
 function getCurrentLocation() {
